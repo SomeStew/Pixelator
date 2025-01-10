@@ -23,17 +23,19 @@ def upload_file():
         return jsonify({'message': 'No selected file'}), 400
 
     if file:
-        # Save the uploaded file
+        # Save the uploaded file with its original name
         filename = file.filename
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
 
-        # Process the image
+        # Generate a processed file name based on the input file name
         output_filename = f"processed_{filename}"
         output_path = os.path.join(app.config['PROCESSED_FOLDER'], output_filename)
+
+        # Process the image
         process_image(file_path, output_path, num_pixels=50)
 
-        # Return the processed image as a response
+        # Return the processed image
         return send_file(output_path, mimetype='image/jpeg', as_attachment=True)
 
 if __name__ == '__main__':
