@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    width:auto;
 }
 header {
     width:100%;
@@ -24,12 +24,11 @@ header {
     text-align: center;
 }
 aside {
-    display: flex;
-    flex-direction: column;
-    align-self: left;
+    height: 100%;
+    height:auto;
+    align-self: flex-start;
     width: 12.5%;
-    margin-bottom: 25px;
-    min-height: 60px;
+    min-height: 100%;
 
     color:#FFFFFF;
 
