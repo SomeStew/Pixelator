@@ -1,1 +1,1 @@
-web: gunicorn pixelise:app
+web: gunicorn app:app

@@ -43,3 +43,8 @@ aside {
     padding-top: 25px ;
     padding-bottom: 25px ;
 }
+button:hover {
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
