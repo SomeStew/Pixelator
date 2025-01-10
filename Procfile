@@ -1,1 +1,1 @@
-web: gunicorn pixelise.py:app.py
+web: gunicorn pixelise:app
