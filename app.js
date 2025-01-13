@@ -7,7 +7,7 @@ document.getElementById('upload-form').addEventListener('submit', function(event
     var imageFile = document.getElementById('image').files[0];
     formData.append('image', imageFile);
 
-    fetch('/upload', {
+    fetch('https://pixelator-ioak.onrender.com/upload', {
         method: 'POST',
         body: formData
     })

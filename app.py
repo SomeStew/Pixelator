@@ -1,10 +1,12 @@
 # app.py
 from flask import Flask, request, jsonify, send_file
 import os
+from flask_cors import CORS
 from pixelise import process_image  # Import the image-processing function
 
 print("Flask app is starting...")
 app = Flask(__name__)
+CORS(app)
 UPLOAD_FOLDER = 'uploads'
 PROCESSED_FOLDER = 'processed'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -40,4 +42,4 @@ def upload_file():
         return send_file(output_path, mimetype='image/jpeg', as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
