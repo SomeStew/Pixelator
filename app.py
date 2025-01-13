@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify, send_file
 import os
 from pixelise import process_image  # Import the image-processing function
 
+print("Flask app is starting...")
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 PROCESSED_FOLDER = 'processed'
