@@ -26,7 +26,7 @@ def process_image(input_image_path, output_image_path, num_pixels):
     draw = ImageDraw.Draw(white_img)
 
     # Create quadrilaterals centered on the selected pixels
-    rect_size = int(min(width, height) / 100)  # Size of rectangles
+    rect_size = int(min(width, height) / 10)  # Size of rectangles
     for x, y, color in selected_pixels:
         top_left = (x - rect_size // 2, y - rect_size // 2)
         bottom_right = (x + rect_size // 2, y + rect_size // 2)
