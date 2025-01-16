@@ -27,10 +27,10 @@ def process_image(input_image_path, output_image_path, num_pixels):
 
     # Create quadrilaterals centered on the selected pixels
     rect_size = int(min(width, height) / 10)  # Size of rectangles
-    # Create quadrilaterals centered on the selected pixels
     for x, y, color in selected_pixels:
         # Generate a random size for the rectangle, proportional to the image size
-        rect_size = random.randint(int(min(width, height) / 50), int(min(width, height) / 10))
+        rect_width = random.randint(int(min(width, height) / 50), int(min(width, height) / 10))
+        rect_height = random.randint(int(min(width, height) / 50), int(min(width, height) / 10))
         top_left = (x - rect_size // 2, y - rect_size // 2)
         bottom_right = (x + rect_size // 2, y + rect_size // 2)
         draw.rectangle([top_left, bottom_right], fill=color)
