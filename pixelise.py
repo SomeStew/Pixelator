@@ -31,8 +31,8 @@ def process_image(input_image_path, output_image_path, num_pixels):
         # Generate a random size for the rectangle, proportional to the image size
         rect_width = random.randint(int(min(width, height) / 50), int(min(width, height) / 10))
         rect_height = random.randint(int(min(width, height) / 50), int(min(width, height) / 10))
-        top_left = (x - rect_size // 2, y - rect_size // 2)
-        bottom_right = (x + rect_size // 2, y + rect_size // 2)
+        top_left = (x - rect_width // 2, y - rect_height // 2)
+        bottom_right = (x + rect_width // 2, y + rect_height // 2)
         draw.rectangle([top_left, bottom_right], fill=color)
 
     # Save the resulting image
