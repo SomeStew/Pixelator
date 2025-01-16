@@ -29,8 +29,8 @@ def process_image(input_image_path, output_image_path, num_pixels):
     rect_size = int(min(width, height) / 10)  # Size of rectangles
     for x, y, color in selected_pixels:
         # Generate a random size for the rectangle, proportional to the image size
-        rect_width = random.randint(int(min(width, height) / 50), int(min(width, height) / 10))
-        rect_height = random.randint(int(min(width, height) / 50), int(min(width, height) / 10))
+        rect_width = random.randint(int(min(width, height) / 15), int(min(width, height) / 5))
+        rect_height = random.randint(int(min(width, height) / 15), int(min(width, height) / 5))
         top_left = (x - rect_width // 2, y - rect_height // 2)
         bottom_right = (x + rect_width // 2, y + rect_height // 2)
         draw.rectangle([top_left, bottom_right], fill=color)
