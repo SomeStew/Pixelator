@@ -26,14 +26,26 @@ def process_image(input_image_path, output_image_path, num_pixels):
     draw = ImageDraw.Draw(white_img)
 
     # Create quadrilaterals centered on the selected pixels
-    rect_size = int(min(width, height) / 10)  # Size of rectangles
     for x, y, color in selected_pixels:
-        # Generate a random size for the rectangle, proportional to the image size
-        rect_width = random.randint(int(min(width, height) / (250/num_pixels)), int(min(width, height) / (150/num_pixels)))
-        rect_height = random.randint(int(min(width, height) / (250/num_pixels)), int(min(width, height) / (150/num_pixels)))
+        # Generate larger random dimensions for the rectangle
+        rect_width = random.randint(int(min(width, height) / 30), int(min(width, height) / 5))
+        rect_height = random.randint(int(min(width, height) / 30), int(min(width, height) / 5))
         top_left = (x - rect_width // 2, y - rect_height // 2)
         bottom_right = (x + rect_width // 2, y + rect_height // 2)
-        draw.rectangle([top_left, bottom_right], fill=color)
+        
+        # Border color
+        rgb = Image.new("RGB", (1, 1), color).getpixel((0, 0))
+        darker_rgb = tuple(int(c * 0.7) for c in rgb)
+        darker_color = '#{:02x}{:02x}{:02x}'.format(*darker_rgb)
+        
+        # Draw the rectangle with the border
+        draw.rectangle([top_left, bottom_right], outline=darker_color, fill=darker_color)
+
+        # Filler
+        inset = 2  # Border size
+        inner_top_left = (top_left[0] + inset, top_left[1] + inset)
+        inner_bottom_right = (bottom_right[0] - inset, bottom_right[1] - inset)
+        draw.rectangle([inner_top_left, inner_bottom_right], fill=color)
 
     # Save the resulting image
     white_img.save(output_image_path)
