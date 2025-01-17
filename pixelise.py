@@ -28,8 +28,8 @@ def process_image(input_image_path, output_image_path, num_pixels):
     # Create quadrilaterals centered on the selected pixels
     for x, y, color in selected_pixels:
         # Generate larger random dimensions for the rectangle
-        rect_width = random.randint(int(min(width, height) / 30), int(min(width, height) / 5))
-        rect_height = random.randint(int(min(width, height) / 30), int(min(width, height) / 5))
+        rect_width = random.randint(int(min(width, height) / (250/num_pixels)), int(min(width, height) / (150/num_pixels)))
+        rect_height = random.randint(int(min(width, height) / (250/num_pixels)), int(min(width, height) / (150/num_pixels)))
         top_left = (x - rect_width // 2, y - rect_height // 2)
         bottom_right = (x + rect_width // 2, y + rect_height // 2)
         
