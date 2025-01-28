@@ -1,47 +1,51 @@
 html {
     background-color: #FFFFFF;
-}
-body {
-    margin: 0 0 0 0;
-    background-size: cover;
     height: 100%;
+}
+
+body {
     margin: 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width:auto;
+    align-items: stretch;
 }
+
 header {
-    width:100%;
-    margin-bottom: 0px;
-
+    width: 100%;
     background-color: rgb(45, 45, 45);
-
-    border-bottom-color:orange;
-    border-bottom-style: solid;
-
+    border-bottom: 2px solid orange;
     color: rgb(255, 160, 36);
     text-align: center;
 }
-aside {
-    height: 100%;
-    height:auto;
-    align-self: flex-start;
-    width: 12.5%;
-    min-height: 100%;
 
-    color:#FFFFFF;
-
-    border-right-color:orange;
-    border-right-style: solid;
-
-    background-color: rgb(45, 45, 45);
-
-    padding-left: 25px ;
-    padding-right: 25px ;
-    padding-top: 25px ;
-    padding-bottom: 25px ;
+main {
+    display: flex;
+    flex: 1;
+    width: 100%;
 }
+
+aside {
+    width: 12.5%;
+    background-color: rgb(45, 45, 45);
+    color: #FFFFFF;
+    border-right: 2px solid orange;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+
 button:hover {
     background-color: orange;
     color: white;

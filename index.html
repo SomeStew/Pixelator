@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title> Projet Site HTML </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/css_index.CSS">
-            <style>
-            main {
-                flex: 1; /* Permet au contenu principal de prendre le reste de l'espace */
-            }
-            </style>
-    </head>
-    <body>
-        
-        <header> 
-            <br><h1>Welcome to the Pixelator</h1><br>
-        </header>
+<html lang="en">
+<head>
+    <title>Projet Site HTML</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css_index.CSS">
+</head>
+<body>
+    <header> 
+        <br><h1>Welcome to the Pixelator</h1><br>
+    </header>
 
-        <h1>Upload an Image</h1>
-        <form id="upload-form" enctype="multipart/form-data">
-            <input type="file" id="image" name="image" accept="image/*">
-            <button type="submit">Upload</button>
-        </form>
-        <div id="result"></div>
-        <script src="app.js"></script>
+    <main>
+        <aside>
+            <h3>How does it work?</h3><br>
+            <h4>Download an image you want to pixelize from the web and upload it.</h4>
+        </aside>
 
-    </body>
-    <aside>
-        <h3>How does it work ?</h3><br>
-        <h4>Download an image you want to pixelise from the web and upload it.</h4>
-    </aside>
+        <section>
+            <h1>Upload an Image</h1>
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" id="image" name="image" accept="image/*">
+                <button type="submit">Upload</button>
+            </form>
+            <div id="result"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
 </html>
