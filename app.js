@@ -1,5 +1,61 @@
 // app.js
 
+document.addEventListener("DOMContentLoaded", function () {
+    const aside = document.querySelector("aside");
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Function to open sidebar
+    function openSidebar() {
+        aside.classList.add("active");
+    }
+
+    // Function to close sidebar
+    function closeSidebar() {
+        aside.classList.remove("active");
+    }
+
+    // Detect touch start
+    document.addEventListener("touchstart", (event) => {
+        touchStartX = event.touches[0].clientX;
+    });
+
+    // Detect touch end
+    document.addEventListener("touchend", (event) => {
+        touchEndX = event.changedTouches[0].clientX;
+
+        // If swiped right, open sidebar
+        if (touchEndX > touchStartX + 50) {
+            openSidebar();
+        }
+        // If swiped left, close sidebar
+        else if (touchEndX < touchStartX - 50) {
+            closeSidebar();
+        }
+    });
+
+    // Add a menu button to toggle sidebar manually
+    const menuButton = document.createElement("button");
+    menuButton.textContent = "☰ Menu";
+    menuButton.classList.add("menu-btn");
+    document.body.appendChild(menuButton);
+    menuButton.addEventListener("click", function () {
+        if (aside.classList.contains("active")) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
+
+    // Close sidebar when clicking outside of it
+    document.addEventListener("click", (event) => {
+        if (!aside.contains(event.target) && !menuButton.contains(event.target)) {
+            closeSidebar();
+        }
+    });
+});
+
+// Image Upload and Preview Functionality
 document.getElementById('upload-form').addEventListener('submit', function(event) {
     event.preventDefault();
 

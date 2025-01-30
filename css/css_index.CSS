@@ -17,6 +17,7 @@ header {
     border-bottom: 2px solid orange;
     color: rgb(255, 160, 36);
     text-align: center;
+    padding: 10px;
 }
 
 main {
@@ -26,12 +27,23 @@ main {
 }
 
 aside {
-    width: 12.5%;
+    width: 250px; /* Adjust width as needed */
+    height: 100vh; /* Full height */
     background-color: rgb(45, 45, 45);
-    color: #FFFFFF;
+    color: white;
     border-right: 2px solid orange;
     padding: 25px;
     box-sizing: border-box;
+    position: fixed; /* Keep it off-screen */
+    top: 0;
+    left: 0;
+    transform: translateX(-100%); /* Hide it initially */
+    transition: transform 0.3s ease-in-out; /* Smooth slide animation */
+}
+
+/* When sidebar is active */
+aside.active {
+    transform: translateX(0); /* Bring it into view */
 }
 
 section {
@@ -45,9 +57,36 @@ section {
     box-sizing: border-box;
 }
 
-
+/* Button Hover Effect */
 button:hover {
     background-color: orange;
     color: white;
     cursor: pointer;
+}
+
+/* Floating Menu Button */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: 5px;
+}
+
+/* Hide sidebar for larger screens */
+@media (min-width: 768px) {
+    aside {
+        transform: translateX(0); /* Always visible on desktop */
+        position: relative;
+        width: 12.5%;
+    }
+    .menu-btn {
+        display: none; /* Hide menu button on large screens */
+    }
 }
