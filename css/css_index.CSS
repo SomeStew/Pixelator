@@ -68,4 +68,7 @@ button:hover {
         position: relative;
         width: 12.5%;
     }
+    .menu-btn {
+        display: none; /* Hide menu button on large screens */
+    }
 }
