@@ -64,7 +64,7 @@ button:hover {
 
 @media (min-width: 768px) {
     aside {
-        transform: translateX(0); 
+        transform: translateX(0); /* Always visible on desktop */
         position: relative;
         width: 12.5%;
     }
