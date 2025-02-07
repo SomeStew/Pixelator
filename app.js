@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let touchStartX = 0;
     let touchEndX = 0;
 
-    // Function to open sidebar
+
     function openSidebar() {
         aside.classList.add("active");
     }
 
-    // Function to close sidebar
+
     function closeSidebar() {
         aside.classList.remove("active");
     }
@@ -24,17 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("touchend", (event) => {
         touchEndX = event.changedTouches[0].clientX;
 
-        // If swiped right, open sidebar
+
         if (touchEndX > touchStartX + 50) {
             openSidebar();
         }
-        // If swiped left, close sidebar
+
         else if (touchEndX < touchStartX - 50) {
             closeSidebar();
         }
     });
 
-    // Add a menu button to toggle sidebar manually
+
     const menuButton = document.createElement("button");
     menuButton.textContent = "☰ Menu";
     menuButton.classList.add("menu-btn");
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Close sidebar when clicking outside of it
+
     document.addEventListener("click", (event) => {
         if (!aside.contains(event.target) && !menuButton.contains(event.target)) {
             closeSidebar();
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Image Upload and Preview Functionality
+// Image Upload
 document.getElementById('upload-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -78,7 +78,7 @@ document.getElementById('upload-form').addEventListener('submit', function(event
         var a = document.createElement('a');
         a.style.display = 'none';
         a.href = url;
-        a.download = 'processed_image.jpg'; // Default name for the downloaded file
+        a.download = 'processed_image.jpg'; 
         document.body.appendChild(a);
         a.click();
         window.URL.revokeObjectURL(url);
@@ -91,7 +91,7 @@ document.getElementById('upload-form').addEventListener('submit', function(event
     });
 });
 
-// Image preview logic
+// Image preview
 document.getElementById('image').addEventListener('change', function(event) {
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -100,11 +100,11 @@ document.getElementById('image').addEventListener('change', function(event) {
         imgPreview.style.maxWidth = '300px';
         imgPreview.style.marginTop = '10px';
 
-        // Clear any previous content in the result div
+
         var resultDiv = document.getElementById('result');
         resultDiv.innerHTML = '';
 
-        // Add the preview image to the result div
+
         resultDiv.appendChild(imgPreview);
     };
     reader.readAsDataURL(event.target.files[0]);
